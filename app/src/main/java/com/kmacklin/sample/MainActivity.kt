@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -70,7 +71,8 @@ fun coinChangeScreen(navController: NavController) {
 
 @Composable
 fun readFile(navController: NavController) {
-    val viewModel = ReadFileViewModel()
+    val context = LocalContext.current
+    val viewModel = ReadFileViewModel(context)
 
     readFileScreen(viewModel = viewModel)
 }
